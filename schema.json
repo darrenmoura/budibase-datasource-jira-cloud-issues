@@ -1,0 +1,131 @@
+{
+  "type": "datasource",
+  "metadata": {},
+  "schema": {
+    "docs": "https://developer.atlassian.com/cloud/jira/platform/rest/v2",
+    "friendlyName": "Jira Cloud - Issues",
+    "type": "API",
+    "description": "Manage Jira Cloud issues. Uses Jira Cloud REST API V2.",
+    "datasource": {
+      "atlassianDomainBaseUrl": {
+        "display": "Jira Base URL",
+        "type": "string",
+        "required": true
+      },
+      "username": {
+        "type": "string",
+        "required": true
+      },
+      "apiToken": {
+        "display": "API Token",
+        "type": "password",
+        "required": true
+      }
+    },
+    "query": {
+      "create": {
+        "type": "json"
+      },
+      "read": {
+        "type": "fields",
+        "fields": {
+          "issueIdOrKey": {
+            "display": "Issue ID or Key",
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "search": {
+        "type": "fields",
+        "fields": {
+          "startAt": {
+            "display": "Page Offset",
+            "type": "number",
+            "required": true
+          },
+          "maxResults": {
+            "display": "Page Size",
+            "type": "number",
+            "required": true
+          },
+          "jql": {
+            "display": "JQL Query",
+            "type": "sql",
+            "required": true
+          },
+          "fields": {
+            "display": "Fields",
+            "type": "string",
+            "required": false
+          },
+          "expand": {
+            "display": "Expand",
+            "type": "string",
+            "required": false
+          }
+        }
+      },
+      "update": {
+        "type": "fields",
+        "fields": {
+          "issueIdOrKey": {
+            "display": "Issue ID or Key",
+            "type": "string",
+            "required": true
+          },
+          "notifyUsers": {
+            "display": "Notify Users?",
+            "type": "boolean",
+            "required": false
+          },
+          "json": {
+            "display": "Body",
+            "type": "json",
+            "required": true
+          }
+        }
+      },
+      "delete": {
+        "type": "fields",
+        "fields": {
+          "issueIdOrKey": {
+            "display": "Issue ID or Key",
+            "type": "string",
+            "required": true
+          },
+          "deleteSubtasks": {
+            "display": "Delete Subtasks?",
+            "type": "boolean",
+            "required": true
+          }
+        }
+      },
+      "assign": {
+        "type": "fields",
+        "fields": {
+          "issueIdOrKey": {
+            "display": "Issue ID or Key",
+            "type": "string",
+            "required": true
+          },
+          "accountId": {
+            "display": "Account ID",
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "unassign": {
+        "type": "fields",
+        "fields": {
+          "issueIdOrKey": {
+            "display": "Issue ID or Key",
+            "type": "string",
+            "required": true
+          }
+        }
+      }
+    }
+  }
+}
